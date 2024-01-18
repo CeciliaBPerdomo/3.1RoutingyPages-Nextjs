@@ -1,14 +1,11 @@
 // Tiene que estar dentro de app
 // localhost:3000/nosotros
 
-import Header from '@/Components/Header'
 import React from 'react'
 
 const Nosotros = () => {
   return (
     <div>
-      <Header />
-      
       <main className='container m-auto'>
         <h1 className='text-4xl text-blue-600 text-bold my-4'>
           Bienvenido a la página "Nosotros"

@@ -16,8 +16,6 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-    <Header />
-
     <main className='container m-auto'>
       <h1 className="text-4xl text-blue-600 text-bold my-4">Routing y pages</h1>
     </main>
