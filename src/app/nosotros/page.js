@@ -1,9 +1,15 @@
-// Tiene que estar dentro de app
-// localhost:3000/nosotros
 
+'use client';
+import { useRouter } from 'next/navigation';
 import React from 'react'
+import Boton from '@/Components/Boton'
 
 const Nosotros = () => {
+  // Tiene que estar dentro de app
+  // localhost:3000/nosotros
+
+  const router = useRouter();
+
   return (
     <div>
       <main className='container m-auto'>
@@ -12,8 +18,11 @@ const Nosotros = () => {
         </h1>
         <hr />
         <p className='text-base mt-4'>
-          Nuesta historia comienza en 1843 cuando ...
+          Sitio en construcción
         </p>
+        <Boton onClick={() => router.back()}>
+          Volver
+        </Boton>
       </main>
 
     </div>
@@ -22,3 +31,10 @@ const Nosotros = () => {
 
 export default Nosotros
 
+/*
+Funciones de router
+
+--> router.replace("")  --> Reemplaza por otra ruta especifica
+--> router.refresh()    --> Refresca la pagina
+--> router.foward()     --> Avanza en el flujo de navegacion
+*/

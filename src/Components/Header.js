@@ -1,7 +1,32 @@
-import Image from 'next/image';
-import React from 'react';
+"use client"
+import Image from 'next/image';                 // Imagenes
+import React from 'react';                      // React 
+import Link from 'next/link';                   // Link
+import { usePathname } from 'next/navigation';  // Links activos
+
 
 const Header = () => {
+
+    const links = [
+        {
+            label: "Inicio",
+            href: "/"
+        },
+
+        {
+            label: "Nosotros",
+            href: "/nosotros"
+        },
+
+        {
+            label: "Contacto",
+            href: "/contacto"
+        }
+
+    ]
+
+    const pathname = usePathname()
+
     // w-full: ocupa todo el ancho
     // py-6: padding en el eje y de 6
     return (
@@ -9,17 +34,28 @@ const Header = () => {
             <header className="w-full py-6 bg-blue-300">
                 <div className='container m-auto flex justify-between items-center'>
                     <p className='text-4xl text-bold text-slate-100'>
-                        <Image 
-                            src={"/next.svg"}
-                            alt="CoderHouse-Logo"
-                            width={100}
-                            height={200}
-                        />
+                        <Link href={"/"}>
+                            <Image
+                                src={"/next.svg"}
+                                alt="CoderHouse-Logo"
+                                width={100}
+                                height={200}
+                            />
+                            </Link>
                     </p>
                     <nav className='flex justify-between gap-2'>
-                        <a href="" className='text-base text-slate-100 p-3'>Enlace 1</a>
-                        <a href="" className='text-base text-slate-100 p-3'>Enlace 2</a>
-                        <a href="" className='text-base text-slate-100 p-3'>Enlace 3</a>
+                        {links.map(link => {
+                             return(
+                                <Link
+                                key = {link.label}
+                                href={link.href}
+                                // queda en negrita cuando esta activo el link
+                                className={`${pathname === link.href ? 'font-bold': ''} text-base text-slate-100 p-3`}
+                                >
+                                    {link.label}
+                                </Link>
+                             )
+                        })}
                     </nav>
                 </div>
             </header>
